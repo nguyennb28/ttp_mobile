@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/components/my_button.dart';
 import 'package:flutter_application_3/components/my_textfield.dart';
+import 'package:flutter_application_3/components/square_tile.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -9,6 +10,9 @@ class Login extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
+  // sign user in method
+  void signUserIn() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +20,7 @@ class Login extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Logo
               SizedBox(height: 50),
@@ -59,12 +64,62 @@ class Login extends StatelessWidget {
 
               const SizedBox(height: 25),
               // sign in button
-              MyButton()
+              MyButton(onTap: signUserIn),
+              const SizedBox(height: 50),
               // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(thickness: 0.5, color: Colors.grey[400]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        "Or continue with",
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(thickness: 0.5, color: Colors.grey[400]),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 50),
 
               // google + apple sign in buttons
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  // Google button
+                  SquareTile(imagePath: "lib/images/google.png"),
+                  SizedBox(width: 25),
+                  SquareTile(imagePath: "lib/images/apple.png"),
+                  // Apple button
+                ],
+              ),
+              const SizedBox(height: 50),
               // not a member ? register now
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Not a member?',
+                    style: TextStyle(color: Colors.grey[700]),
+                  ),
+                  const SizedBox(width: 4),
+                  Text(
+                    'Register now',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
