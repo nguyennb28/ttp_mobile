@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_3/components/my_button.dart';
 import 'package:flutter_application_3/components/my_textfield.dart';
 
 class Login extends StatelessWidget {
@@ -58,7 +59,7 @@ class Login extends StatelessWidget {
 
               const SizedBox(height: 25),
               // sign in button
-
+              MyButton()
               // or continue with
 
               // google + apple sign in buttons
